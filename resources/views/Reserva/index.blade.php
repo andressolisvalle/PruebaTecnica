@@ -8,6 +8,13 @@
     <h1>Lista de Reservaciones</h1>
     <a href="{{ route('reserva.create') }}" class="btn btn-primary mb-3">Agregar Reservación</a>
     <a href="{{ route('habitaciones.index') }}" class="btn btn-primary mb-3">Habitaciones</a>
+
+    @if(session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+    @endif
+    
     @if($reservacion->isEmpty())
         <p>No hay reservaciones.</p>
     @else

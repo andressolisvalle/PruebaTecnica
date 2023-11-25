@@ -65,7 +65,9 @@ class ReservasController extends Controller
         ];
     
         Mail::to($request->input('email'))->send(new ConfirmacionReserva($detallesReserva));
-        return redirect()->route('reserva.index');
+       // return redirect()->route('reserva.index');
+        return redirect()->route('reserva.index')->with('message', 'Reserva creada exitosamente. Verifica tu bandeja de entrada de Gmail y confirma la reservación');
+
     }
 
     public function confirmacion($id)
